@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SCMM_Application.DataAccess;
 using SCMM_Application.DataAccess.DomainModels;
+using SCMM_Application.DataAccess.Models;
 using SCMM_Application.DataAccess.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,77 @@ namespace SCMM_Application.DataAccess.Repository
                 userRaceDtoList.Add(userRaceDto);
             }
             return userRaceDtoList;
+        }
+
+        public void AddUserRace(int userId, UserRaceDto userRaceDto)
+        {
+            try
+            {
+                UserRace userRace = new UserRace()
+                {
+                    UserId = userRaceDto.UserId,
+                    RaceId = userRaceDto.RaceId,
+                    Timing = userRaceDto.Timing,
+                    Place = userRaceDto.Place,
+                    CreatedUserId = userId,
+                    CreatedDate = DateTime.Now
+                };
+
+                unitOfWork.UserRaces.Insert(userRace);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+
+        }
+
+        public void UpdateUserRace(int userId, UserRaceDto userRaceDto)
+        {
+            try
+            {
+                var result = context.UserRaces.FirstOrDefault(x => x.UserId == userRaceDto.UserId && x.RaceId == userRaceDto.RaceId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                result.UserId = userRaceDto.UserId;
+                result.RaceId = userRaceDto.RaceId;
+                result.Timing = userRaceDto.Timing;
+                result.Place = userRaceDto.Place;
+                result.CreatedUserId = userId;
+                result.CreatedDate = DateTime.Now;
+                result.ModifiedUserId = userId;
+                result.ModifiedDate = DateTime.Now;
+
+                unitOfWork.UserRaces.Update(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
+
+        public void DeleteUserRace(int userRaceId)
+        {
+            try
+            {
+                var result = unitOfWork.UserRaces.GetFirstOrDefault(userRaceId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                unitOfWork.UserRaces.Delete(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
         }
     }
 }

@@ -15,6 +15,8 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
 
         IBaseRepository<Performance> Performances { get; }
 
+        IBaseRepository<UserRace> UserRaces { get; }
+
         public void Commit();
 
         public void CommitAsync();

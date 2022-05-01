@@ -23,5 +23,20 @@ namespace SCMM_Application.BusinessLogic
             return userRaceRepository.GetAll();
         }
 
+        public void AddUserRace(int userId, UserRaceDto userRaceDto)
+        {
+            userRaceRepository.AddUserRace(userId, userRaceDto);
+        }
+
+        public void UpdateUserRace(int userId, UserRaceDto userRaceDto)
+        {
+            userRaceRepository.UpdateUserRace(userId, userRaceDto);
+        }
+
+        public void DeleteUserRace(int userRaceId)
+        {
+            userRaceRepository.DeleteUserRace(userRaceId);
+        }
+
     }
 }

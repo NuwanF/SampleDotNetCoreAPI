@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SCMM_Application.BusinessLogic.Interfaces;
+using SCMM_Application.DataAccess.DomainModels;
 using SCMM_Application.Helper;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,33 @@ namespace SCMM_Application.Controllers
                 return null;
 
             return Ok(result.Where(x => x.CoachId == coachId));
+        }
+
+        [HttpPost]
+        [Route("PostSquad")]
+        [AuthorizeByRole("Coach")]
+        public IActionResult PostSquad(int userId, [FromBody] SquadDto squadDto)
+        {
+            squadManager.AddSquad(userId, squadDto);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("PutSquad")]
+        [AuthorizeByRole("Coach")]
+        public IActionResult PutSquad(int userId, [FromBody] SquadDto squadDto)
+        {
+            squadManager.UpdateSquad(userId, squadDto);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("DeleteSquad")]
+        [AuthorizeByRole("Coach")]
+        public IActionResult DeleteSquad(int squadId)
+        {
+            squadManager.DeleteSquad(squadId);
+            return Ok();
         }
     }
 }

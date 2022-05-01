@@ -27,6 +27,19 @@ namespace SCMM_Application.BusinessLogic
             return performanceRepository.GetByUsrId(userId);
         }
 
+        public void AddPerformance(int userId, PerformanceDto performanceDto)
+        {
+            performanceRepository.AddPerformance(userId, performanceDto);
+        }
 
+        public void UpdatePerformance(int userId, PerformanceDto performanceDto)
+        {
+            performanceRepository.UpdatePerformance(userId, performanceDto);
+        }
+
+        public void DeletePerformance(int performanceId)
+        {
+            performanceRepository.DeletePerformance(performanceId);
+        }
     }
 }

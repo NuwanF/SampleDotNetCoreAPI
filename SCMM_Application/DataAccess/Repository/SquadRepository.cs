@@ -46,5 +46,73 @@ namespace SCMM_Application.DataAccess.Repository
             }
             return squadDtoList;
         }
+
+        public void AddSquad(int userId, SquadDto squadDto)
+        {
+            try
+            {
+                Squad squad = new Squad()
+                {
+                    Name = squadDto.Name,
+                    StudentId = squadDto.StudentId,
+                    CoachId = squadDto.CoachId,
+                    CreatedUserId = userId,
+                    CreatedDate = DateTime.Now
+                };
+
+                unitOfWork.Squads.Insert(squad);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+
+        }
+
+        public void UpdateSquad(int userId, SquadDto squadDto)
+        {
+            try
+            {
+                var result = unitOfWork.Squads.GetFirstOrDefault(squadDto.SquadId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                result.SquadId = squadDto.SquadId;
+                result.Name = squadDto.Name;
+                result.StudentId = squadDto.StudentId;
+                result.CoachId = squadDto.CoachId;
+                result.ModifiedUserId = userId;
+                result.ModifiedDate = DateTime.Now;
+
+                unitOfWork.Squads.Update(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
+
+        public void DeleteSquad(int squadId)
+        {
+            try
+            {
+                var result = unitOfWork.Squads.GetFirstOrDefault(squadId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                unitOfWork.Squads.Delete(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
     }
 }

@@ -13,5 +13,11 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
 
         public PerformanceDto GetByUsrId(int userId);
 
+        public void AddPerformance(int userId, PerformanceDto performanceDto);
+
+        public void UpdatePerformance(int userId, PerformanceDto performanceDto);
+
+        public void DeletePerformance(int performanceId);
+
     }
 }

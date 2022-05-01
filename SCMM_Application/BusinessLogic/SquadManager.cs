@@ -20,5 +20,20 @@ namespace SCMM_Application.BusinessLogic
         {
             return squadRepository.GetAll();
         }
+
+        public void AddSquad(int userId, SquadDto squadDto)
+        {
+            squadRepository.AddSquad(userId, squadDto);
+        }
+
+        public void UpdateSquad(int userId, SquadDto squadDto)
+        {
+            squadRepository.UpdateSquad(userId, squadDto);
+        }
+
+        public void DeleteSquad(int squadId)
+        {
+            squadRepository.DeleteSquad(squadId);
+        }
     }
 }

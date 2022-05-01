@@ -16,6 +16,7 @@ namespace SCMM_Application.DataAccess.Repository
         private BaseRepository<UserRole> userRole;
         private BaseRepository<Squad> squad;
         private BaseRepository<Performance> performance;
+        private BaseRepository<UserRace> userRace;
 
         public UnitOfWork(SwimClubDBContext context)
         {
@@ -55,6 +56,15 @@ namespace SCMM_Application.DataAccess.Repository
             {
                 return performance ??
                     (performance = new BaseRepository<Performance>(context));
+            }
+        }
+
+        public IBaseRepository<UserRace> UserRaces
+        {
+            get
+            {
+                return userRace ??
+                    (userRace = new BaseRepository<UserRace>(context));
             }
         }
 

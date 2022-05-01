@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SCMM_Application.BusinessLogic.Interfaces;
+using SCMM_Application.DataAccess.DomainModels;
 using SCMM_Application.Helper;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,33 @@ namespace SCMM_Application.Controllers
         {
             var result = performanceManager.GetByUsrId(userId);
             return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("PostPerformance")]
+        [AuthorizeByRole("Coach")]
+        public IActionResult PostPerformance(int userId, [FromBody] PerformanceDto performanceDto)
+        {
+            performanceManager.AddPerformance(userId, performanceDto);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("PutPerformance")]
+        [AuthorizeByRole("Coach")]
+        public IActionResult PutPerformance(int userId, [FromBody] PerformanceDto performanceDto)
+        {
+            performanceManager.UpdatePerformance(userId, performanceDto);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("DeletePerformance")]
+        [AuthorizeByRole("Coach")]
+        public IActionResult DeletePerformance(int performanceId)
+        {
+            performanceManager.DeletePerformance(performanceId);
+            return Ok();
         }
     }
 }

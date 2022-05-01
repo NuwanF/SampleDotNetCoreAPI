@@ -11,6 +11,10 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
     {
         public List<UserRaceDto> GetAll();
 
+        public void AddUserRace(int userId, UserRaceDto userRaceDto);
 
+        public void UpdateUserRace(int userId, UserRaceDto userRaceDto);
+
+        public void DeleteUserRace(int userRaceId);
     }
 }

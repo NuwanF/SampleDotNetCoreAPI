@@ -73,5 +73,75 @@ namespace SCMM_Application.DataAccess.Repository
             };
             return performanceDto;
         }
+
+        public void AddPerformance(int userId, PerformanceDto performanceDto)
+        {
+            try
+            {
+                Performance performance = new Performance()
+                {
+                    StrokeId = performanceDto.StrokeId,
+                    StageId = performanceDto.StageId,
+                    UserId = performanceDto.UserId,
+                    PersonalBestTime = performanceDto.PersonalBestTime,
+                    CreatedUserId = userId,
+                    CreatedDate = DateTime.Now
+                };
+
+                unitOfWork.Performances.Insert(performance);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+
+        }
+
+        public void UpdatePerformance(int userId, PerformanceDto performanceDto)
+        {
+            try
+            {
+                var result = unitOfWork.Performances.GetFirstOrDefault(performanceDto.PerformanceId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                result.PerformanceId = performanceDto.PerformanceId;
+                result.StrokeId = performanceDto.StrokeId;
+                result.StageId = performanceDto.StageId;
+                result.UserId = performanceDto.UserId;
+                result.PersonalBestTime = performanceDto.PersonalBestTime;
+                result.ModifiedUserId = userId;
+                result.ModifiedDate = DateTime.Now;
+
+                unitOfWork.Performances.Update(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
+
+        public void DeletePerformance(int performanceId)
+        {
+            try
+            {
+                var result = unitOfWork.Performances.GetFirstOrDefault(performanceId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                unitOfWork.Performances.Delete(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
     }
 }
