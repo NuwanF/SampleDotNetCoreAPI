@@ -43,10 +43,15 @@ namespace SCMM_Application.DataAccess.Models
         [Required(ErrorMessage = "Field can not be blank")]
         public string Password { get; set; }
 
-        public DateTime CreatedDate { get; set; }
+        public int? ParentId { get; set; }
 
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
 
+        public DateTime? ModifiedDate { get; set; }
+
+
+        [ForeignKey("ParentId")]
+        public virtual User Parent { get; set; }
 
         [ForeignKey("UserRoleId")]
         public virtual UserRole UserRole { get; set; }

@@ -27,5 +27,9 @@ namespace SCMM_Application.DataAccess.DomainModels
 
         public string UserRoleName { get; set; }
 
+        public int? ParentId { get; set; }
+
+        public string ParentName { get; set; }
+
     }
 }

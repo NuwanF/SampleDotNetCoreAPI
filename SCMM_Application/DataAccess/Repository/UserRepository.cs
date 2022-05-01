@@ -22,30 +22,42 @@ namespace SCMM_Application.DataAccess.Repository
 
         public List<UserDto> GetAll()
         {
-            var result = context.Users.Include(r => r.UserRole);
-
-            if (result == null)
-                return null;
-
-            List<UserDto> userDtoList = new List<UserDto>();
-            foreach (var user in result)
+            try
             {
-                UserDto userDto = new UserDto()
+                var result = context.Users
+                .Include(r => r.UserRole)
+                .Include(r => r.Parent);
+
+                if (result == null)
+                    return null;
+
+                List<UserDto> userDtoList = new List<UserDto>();
+                foreach (var user in result)
                 {
-                    UserId = user.UserId,
-                    Name = user.Name,
-                    DOB = user.DOB,
-                    Gender = user.Gender,
-                    Email = user.Email,
-                    Mobile = user.Mobile,
-                    Username = user.Username,
-                    Password = user.Password,
-                    UserRoleId = user.UserRoleId,
-                    UserRoleName = user.UserRole.Name
-                };
-                userDtoList.Add(userDto);
+                    UserDto userDto = new UserDto()
+                    {
+                        UserId = user.UserId,
+                        Name = user.Name,
+                        DOB = user.DOB,
+                        Gender = user.Gender,
+                        Email = user.Email,
+                        Mobile = user.Mobile,
+                        Username = user.Username,
+                        Password = user.Password,
+                        UserRoleId = user.UserRoleId,
+                        UserRoleName = user.UserRole.Name,
+                        ParentId = user.ParentId,
+                        ParentName = user.Parent != null ? user.Parent.Name : null
+                    };
+                    userDtoList.Add(userDto);
+                }
+                return userDtoList;
             }
-            return userDtoList;
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+            
         }
 
         public UserDto GetByCredentials(string username, string password)
@@ -70,5 +82,83 @@ namespace SCMM_Application.DataAccess.Repository
 
             return userDto;
         }
+
+        public void AddUser(UserDto userDto)
+        {
+            try
+            {
+                User user = new User()
+                {
+                    UserRoleId = 5,
+                    Name = userDto.Name,
+                    DOB = userDto.DOB,
+                    Gender = userDto.Gender,
+                    Email = userDto.Email,
+                    Mobile = userDto.Mobile,
+                    Username = userDto.Username,
+                    Password = userDto.Password,
+                    CreatedDate = DateTime.Now
+                };
+
+                unitOfWork.Users.Insert(user);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+            
+        }
+
+        public void UpdateUser(UserDto userDto)
+        {
+            try
+            {
+                var result = unitOfWork.Users.GetFirstOrDefault(userDto.UserId);
+
+                if (result == null)
+                {
+                    return;
+                }
+
+                result.UserRoleId = userDto.UserRoleId;
+                result.Name = userDto.Name;
+                result.DOB = userDto.DOB;
+                result.Gender = userDto.Gender;
+                result.Email = userDto.Email;
+                result.Mobile = userDto.Mobile;
+                result.Username = userDto.Username;
+                result.Password = userDto.Password;
+                result.ParentId = userDto.ParentId;
+                result.ModifiedDate = DateTime.Now;
+
+                unitOfWork.Users.Update(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
+
+        public void DeleteUser(int userId)
+        {
+            try
+            {
+                var result = unitOfWork.Users.GetFirstOrDefault(userId);
+
+                if (result == null)
+                {
+                    return;
+                }
+                unitOfWork.Users.Delete(result);
+                unitOfWork.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
+
     }
 }

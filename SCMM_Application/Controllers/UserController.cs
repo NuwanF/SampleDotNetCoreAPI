@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SCMM_Application.BusinessLogic.Interfaces;
+using SCMM_Application.DataAccess.DomainModels;
 using SCMM_Application.Helper;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,6 @@ namespace SCMM_Application.Controllers
     [ApiController]
     [Route("[controller]")]
     [Authorize]
-    [AuthorizeByRole("Admin")]
     public class UserController : ControllerBase
     {
 
@@ -66,6 +66,30 @@ namespace SCMM_Application.Controllers
                 return null;
 
             return Ok(result.Where(x => x.UserRoleName == "Default"));
+        }
+
+        [HttpPost]
+        [Route("PostUser")]
+        public IActionResult PostUser([FromBody] UserDto userDto)
+        {
+            userManager.AddUser(userDto);
+            return Ok();
+        }
+
+        [HttpPut]
+        [Route("PutUser")]
+        public IActionResult PutUser([FromBody] UserDto userDto)
+        {
+            userManager.UpdateUser(userDto);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("DeleteUser")]
+        public IActionResult DeleteUser(int userId)
+        {
+            userManager.DeleteUser(userId);
+            return Ok();
         }
     }
 }

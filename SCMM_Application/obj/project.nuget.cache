@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bmt+RHjORESCaGtVZBNcKuKxWkRR+9zhDUJQ+6c10g+kbzP8fNvbzXQkoyQk4WaukXLE9/TRSOTdwii3CmWEgw==",
+  "dgSpecHash": "r0YvRuyBVwOmalcViHmCfx7dkm8ghLszFmRfpz+naIx1Jo8TXUl6AjZdgyiCP5HRKQr9BhqrooIGOrSRbWf9UQ==",
   "success": true,
-  "projectFilePath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application\\SCMM_Application.csproj",
+  "projectFilePath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application\\SCMM_Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.24\\microsoft.aspnetcore.authentication.jwtbearer.3.1.24.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

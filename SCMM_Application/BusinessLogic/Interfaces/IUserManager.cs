@@ -9,7 +9,15 @@ namespace SCMM_Application.BusinessLogic.Interfaces
     public interface IUserManager
     {
         public List<UserDto> GetAll();
+
         public List<UserRoleDto> GetAllUserRoles();
+
         public UserDto GetByCredentials(string username, string password);
+
+        public void AddUser(UserDto userDto);
+
+        public void UpdateUser(UserDto userDto);
+
+        public void DeleteUser(int userId);
     }
 }

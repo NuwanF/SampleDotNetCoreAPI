@@ -12,5 +12,11 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
         public List<UserDto> GetAll();
         public UserDto GetByCredentials(string username, string password);
 
+        public void AddUser(UserDto userDto);
+
+        public void UpdateUser(UserDto userDto);
+
+        public void DeleteUser(int userId);
+
     }
 }

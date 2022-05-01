@@ -9394,11 +9394,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application.Test\\SCMM_Application.Test.csproj",
+      "projectUniqueName": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application.Test\\SCMM_Application.Test.csproj",
       "projectName": "SCMM_Application.Test",
-      "projectPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application.Test\\SCMM_Application.Test.csproj",
+      "projectPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application.Test\\SCMM_Application.Test.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application.Test\\obj\\",
+      "outputPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9415,8 +9415,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application\\SCMM_Application.csproj": {
-              "projectPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application\\SCMM_Application.csproj"
+            "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application\\SCMM_Application.csproj": {
+              "projectPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application\\SCMM_Application.csproj"
             }
           }
         }

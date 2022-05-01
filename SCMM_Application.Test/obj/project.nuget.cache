@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "91gCr8ubLVNJVjxsRDM8hm//YbcMz7YQ3DucwFEzEA/bnU2xOTK6vtF2v881T/fe9Y9gWymLlDnPTHBZDU/fEg==",
+  "dgSpecHash": "gfk7BrdyHk5g/3MeuSzOClIdDhVchPhjFSTBt4FRUbYkG/9RN/R6aHl1mH43/6shaHCZZGwWF9dMCevWcOEzcA==",
   "success": true,
-  "projectFilePath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application.Test\\SCMM_Application.Test.csproj",
+  "projectFilePath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application.Test\\SCMM_Application.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.24\\microsoft.aspnetcore.authentication.jwtbearer.3.1.24.nupkg.sha512",

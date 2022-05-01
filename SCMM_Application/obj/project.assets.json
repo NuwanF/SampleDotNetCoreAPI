@@ -5936,11 +5936,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application\\SCMM_Application.csproj",
+      "projectUniqueName": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application\\SCMM_Application.csproj",
       "projectName": "SCMM_Application",
-      "projectPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application\\SCMM_Application.csproj",
+      "projectPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application\\SCMM_Application.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SCMM_Application\\SCMM_Application\\obj\\",
+      "outputPath": "D:\\MSc\\WEB APPLICATION PROGRAMMING\\SampleDotNetCoreAPI\\SCMM_Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

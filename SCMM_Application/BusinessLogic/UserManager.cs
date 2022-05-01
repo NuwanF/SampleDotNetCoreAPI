@@ -32,5 +32,20 @@ namespace SCMM_Application.BusinessLogic
         {
             return userRepository.GetByCredentials(username, password);
         }
+
+        public void AddUser(UserDto userDto)
+        {
+            userRepository.AddUser(userDto);
+        }
+
+        public void UpdateUser(UserDto userDto)
+        {
+            userRepository.UpdateUser(userDto);
+        }
+
+        public void DeleteUser(int userId)
+        {
+            userRepository.DeleteUser(userId);
+        }
     }
 }

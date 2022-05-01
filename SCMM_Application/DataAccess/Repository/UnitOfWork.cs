@@ -12,6 +12,7 @@ namespace SCMM_Application.DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private SwimClubDBContext context;
+        private BaseRepository<User> user;
         private BaseRepository<UserRole> userRole;
         private BaseRepository<Squad> squad;
         private BaseRepository<Performance> performance;
@@ -19,6 +20,15 @@ namespace SCMM_Application.DataAccess.Repository
         public UnitOfWork(SwimClubDBContext context)
         {
             this.context = context;
+        }
+
+        public IBaseRepository<User> Users
+        {
+            get
+            {
+                return user ??
+                    (user = new BaseRepository<User>(context));
+            }
         }
 
         public IBaseRepository<UserRole> UserRoles
@@ -51,6 +61,11 @@ namespace SCMM_Application.DataAccess.Repository
         public void Commit()
         {
             context.SaveChanges();
+        }
+
+        public async void CommitAsync()
+        {
+            await context.SaveChangesAsync();
         }
     }
 }
