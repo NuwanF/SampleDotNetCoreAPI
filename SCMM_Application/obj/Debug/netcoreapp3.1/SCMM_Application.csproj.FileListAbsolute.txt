@@ -165,7 +165,6 @@ D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\bin\Debu
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.csproj.AssemblyReference.cache
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.GeneratedMSBuildEditorConfig.editorconfig
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.AssemblyInfoInputs.cache
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.AssemblyInfo.cs

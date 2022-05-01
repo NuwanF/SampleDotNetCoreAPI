@@ -30,16 +30,6 @@ namespace SCMM_Application.DataAccess
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
-            //builder.Entity<UserRace>()
-            //  .HasOne(x => x.User)
-            //  .WithMany(x => x.UserRaces)
-            //  .HasForeignKey(x => x.UserId);
-
-            //builder.Entity<UserRace>()
-            //  .HasOne(x => x.Race)
-            //  .WithMany(x => x.UserRaces)
-            //  .HasForeignKey(x => x.RaceId);
-
             //This will singularize all table names
             foreach (IMutableEntityType entityType in builder.Model.GetEntityTypes())
             {

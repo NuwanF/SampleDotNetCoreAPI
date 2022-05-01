@@ -18,12 +18,12 @@ namespace SCMM_Application.Controllers
 
         private readonly ILogger<RaceController> logger;
 
-        internal IUserRaceManager userRaceManager;
+        internal IRaceManager raceManager;
 
-        public RaceController(ILogger<RaceController> logger, IUserRaceManager userRaceManager)
+        public RaceController(ILogger<RaceController> logger, IRaceManager raceManager)
         {
             this.logger = logger;
-            this.userRaceManager = userRaceManager;
+            this.raceManager = raceManager;
         }
 
         [HttpGet]
@@ -31,34 +31,34 @@ namespace SCMM_Application.Controllers
         [AuthorizeByRole("Admin")]
         public IActionResult GetAll()
         {
-            var result = userRaceManager.GetAll();
+            var result = raceManager.GetAll();
             return Ok(result);
         }
 
         [HttpPost]
-        [Route("PostUserRace")]
+        [Route("PostRace")]
         [AuthorizeByRole("Admin")]
-        public IActionResult PostUserRace(int userId, [FromBody] UserRaceDto userRaceDto)
+        public IActionResult PostRace(int userId, [FromBody] RaceDto raceDto)
         {
-            userRaceManager.AddUserRace(userId, userRaceDto);
+            raceManager.AddRace(userId, raceDto);
             return Ok();
         }
 
         [HttpPut]
-        [Route("PutUserRace")]
+        [Route("PutRace")]
         [AuthorizeByRole("Admin")]
-        public IActionResult PutUserRace(int userId, [FromBody] UserRaceDto userRaceDto)
+        public IActionResult PutRace(int userId, [FromBody] RaceDto raceDto)
         {
-            userRaceManager.UpdateUserRace(userId, userRaceDto);
+            raceManager.UpdateRace(userId, raceDto);
             return Ok();
         }
 
         [HttpDelete]
-        [Route("DeleteUserRace")]
+        [Route("DeleteRace")]
         [AuthorizeByRole("Admin")]
-        public IActionResult DeleteUserRace(int userRaceId)
+        public IActionResult DeleteRace(int raceId)
         {
-            userRaceManager.DeleteUserRace(userRaceId);
+            raceManager.DeleteRace(raceId);
             return Ok();
         }
     }

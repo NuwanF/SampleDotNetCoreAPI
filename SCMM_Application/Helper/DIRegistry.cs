@@ -25,7 +25,9 @@ namespace SCMM_Application.Helper
                 .AddTransient<IPerformanceRepository, PerformanceRepository>()
                 .AddTransient<IPerformanceManager, PerformanceManager>()
                 .AddTransient<IUserRaceRepository, UserRaceRepository>()
-                .AddTransient<IUserRaceManager, UserRaceManager>();
+                .AddTransient<IUserRaceManager, UserRaceManager>()
+                .AddTransient<IRaceRepository, RaceRepository>()
+                .AddTransient<IRaceManager, RaceManager>();
             return services;
         }
     }

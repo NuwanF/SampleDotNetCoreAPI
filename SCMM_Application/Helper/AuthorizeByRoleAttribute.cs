@@ -20,19 +20,20 @@ namespace SCMM_Application.Helper
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            //var authorize = context.HttpContext.User.Claims.Any(c => c.Type == "Role" && c.Value == role);
-            bool authorize = context.HttpContext.User.FindFirst(ClaimTypes.Role).Value == role;
-            if (!authorize)
+
+            if (context.HttpContext.User.FindFirst(ClaimTypes.Role) == null)
             {
-                context.Result = new ForbidResult();
+                context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
             }
 
-            //var account = (Account)context.HttpContext.Items["Account"];
-            //if (true)
-            //{
-            //    // not logged in
-            //    context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };
-            //}
+            else
+            {
+                bool authorize = context.HttpContext.User.FindFirst(ClaimTypes.Role).Value == role;
+                if (!authorize)
+                {
+                    context.Result = new ForbidResult();
+                }
+            }
         }
     }
 

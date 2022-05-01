@@ -57,7 +57,7 @@ namespace SCMM_Application
                             new string[] {}
                     }
                 });
-                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "SCMM API", Version = "v1" });
+                //options.SwaggerDoc("V1", new OpenApiInfo { Title = "SCMM API", Version = "V1" });
             });
 
             services.AddControllers();
