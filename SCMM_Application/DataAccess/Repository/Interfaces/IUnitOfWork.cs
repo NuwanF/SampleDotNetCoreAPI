@@ -19,6 +19,8 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
 
         IBaseRepository<Race> Races { get; }
 
+        IBaseRepository<ClubMeet> ClubMeets { get; }
+
         public void Commit();
 
         public void CommitAsync();

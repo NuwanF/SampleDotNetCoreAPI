@@ -179,4 +179,3 @@ D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debu
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.dll
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.pdb
 D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.genruntimeconfig.cache
-D:\MSc\WEB APPLICATION PROGRAMMING\SampleDotNetCoreAPI\SCMM_Application\obj\Debug\netcoreapp3.1\SCMM_Application.csproj.AssemblyReference.cache

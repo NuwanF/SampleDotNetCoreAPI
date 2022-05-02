@@ -27,7 +27,9 @@ namespace SCMM_Application.Helper
                 .AddTransient<IUserRaceRepository, UserRaceRepository>()
                 .AddTransient<IUserRaceManager, UserRaceManager>()
                 .AddTransient<IRaceRepository, RaceRepository>()
-                .AddTransient<IRaceManager, RaceManager>();
+                .AddTransient<IRaceManager, RaceManager>()
+                .AddTransient<IClubMeetRepository, ClubMeetRepository>()
+                .AddTransient<IClubMeetManager, ClubMeetManager>();
             return services;
         }
     }

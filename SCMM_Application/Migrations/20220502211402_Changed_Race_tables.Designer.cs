@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCMM_Application.DataAccess;
 
 namespace SCMM_Application.Migrations
 {
     [DbContext(typeof(SwimClubDBContext))]
-    partial class SwimClubDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220502211402_Changed_Race_tables")]
+    partial class Changed_Race_tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,10 +42,6 @@ namespace SCMM_Application.Migrations
 
                     b.Property<int?>("ModifiedUserId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Venue")
                         .IsRequired()

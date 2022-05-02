@@ -39,7 +39,7 @@ namespace SCMM_Application.DataAccess
 
         public DbSet<UserRole> UserRoles { get; set; }
 
-        public DbSet<RaceType> RaceTypes { get; set; }
+        public DbSet<ClubMeet> ClubMeets { get; set; }
 
         public DbSet<Stroke> Strokes { get; set; }
 

@@ -25,7 +25,7 @@ namespace SCMM_Application.DataAccess.Repository
             var result = context.UserRaces
                 .Include(r => r.User)
                 .Include(r => r.Race)
-                .Include(r => r.Race.RaceType)
+                .Include(r => r.Race.ClubMeet)
                 .Include(r => r.Race.Stroke);
 
             if (result == null)
@@ -41,13 +41,14 @@ namespace SCMM_Application.DataAccess.Repository
                     RaceId = userRace.RaceId,
                     Timing = userRace.Timing,
                     Place = userRace.Place,
-                    RaceTypeId = userRace.Race.RaceTypeId,
-                    Gender = userRace.Race.RaceType.Gender,
-                    Age = userRace.Race.RaceType.Age,
-                    Distance = userRace.Race.RaceType.Distance,
+                    ClubMeetId = userRace.Race.ClubMeetId,
+                    Gender = userRace.Race.Gender,
+                    Age = userRace.Race.Age,
+                    Distance = userRace.Race.Distance,
                     StrokeId = userRace.Race.StrokeId,
                     StrokeName = userRace.Race.Stroke.Name,
-                    Venue = userRace.Race.Venue
+                    Venue = userRace.Race.ClubMeet.Venue,
+                    MeetDate = userRace.Race.ClubMeet.MeetDate
                 };
                 userRaceDtoList.Add(userRaceDto);
             }

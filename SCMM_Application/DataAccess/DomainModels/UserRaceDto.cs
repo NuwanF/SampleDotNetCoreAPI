@@ -17,7 +17,7 @@ namespace SCMM_Application.DataAccess.DomainModels
 
         public int Place { get; set; }
 
-        public int RaceTypeId { get; set; }
+        public int ClubMeetId { get; set; }
 
         public string Gender { get; set; }
 
@@ -31,6 +31,6 @@ namespace SCMM_Application.DataAccess.DomainModels
 
         public string Venue { get; set; }
 
-        public DateTime RaceDate { get; set; }
+        public DateTime MeetDate { get; set; }
     }
 }

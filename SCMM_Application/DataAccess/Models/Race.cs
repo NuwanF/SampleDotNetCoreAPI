@@ -14,17 +14,21 @@ namespace SCMM_Application.DataAccess.Models
         public int RaceId { get; set; }
 
         [Required(ErrorMessage = "Field can not be blank")]
-        public int RaceTypeId { get; set; }
+        public int ClubMeetId { get; set; }
 
         [Required(ErrorMessage = "Field can not be blank")]
         public int StrokeId { get; set; }
 
-        [Column(TypeName = "nvarchar(250)")]
+        [Column(TypeName = "nvarchar(50)")]
         [Required(ErrorMessage = "Field can not be blank")]
-        public string Venue { get; set; }
+        public string Gender { get; set; }
+
+        [Column(TypeName = "nvarchar(50)")]
+        [Required(ErrorMessage = "Field can not be blank")]
+        public string Age { get; set; }
 
         [Required(ErrorMessage = "Field can not be blank")]
-        public DateTime RaceDate { get; set; }
+        public int Distance { get; set; }
 
         public int? CreatedUserId { get; set; }
 
@@ -34,12 +38,11 @@ namespace SCMM_Application.DataAccess.Models
 
         public DateTime? ModifiedDate { get; set; }
 
-
-        [ForeignKey("RaceTypeId")]
-        public virtual RaceType RaceType { get; set; }
+        [ForeignKey("ClubMeetId")]
+        public virtual ClubMeet ClubMeet { get; set; }
 
         [ForeignKey("StrokeId")]
-        public virtual Stage Stroke { get; set; }
+        public virtual Stroke Stroke { get; set; }
 
     }
 }

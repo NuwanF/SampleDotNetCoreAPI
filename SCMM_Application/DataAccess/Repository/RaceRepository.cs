@@ -22,7 +22,7 @@ namespace SCMM_Application.DataAccess.Repository
         public List<RaceDto> GetAll()
         {
             var result = context.Races
-                .Include(r => r.RaceType)
+                .Include(r => r.ClubMeet)
                 .Include(r => r.Stroke);
 
             if (result == null)
@@ -34,14 +34,14 @@ namespace SCMM_Application.DataAccess.Repository
                 RaceDto raceDto = new RaceDto()
                 {
                     RaceId = race.RaceId,
-                    RaceTypeId = race.RaceTypeId,
-                    Gender = race.RaceType.Gender,
-                    Age = race.RaceType.Age,
-                    Distance = race.RaceType.Distance,
+                    ClubMeetId = race.ClubMeetId,
+                    Gender = race.Gender,
+                    Age = race.Age,
+                    Distance = race.Distance,
                     StrokeId = race.StrokeId,
                     StrokeName = race.Stroke.Name,
-                    Venue = race.Venue,
-                    RaceDate = race.RaceDate
+                    Venue = race.ClubMeet.Venue,
+                    MeetDate = race.ClubMeet.MeetDate
                 };
                 raceDtoList.Add(raceDto);
             }
@@ -54,12 +54,13 @@ namespace SCMM_Application.DataAccess.Repository
             {
                 Race race = new Race()
                 {
-                    RaceTypeId = raceDto.RaceTypeId,
+                    ClubMeetId = raceDto.ClubMeetId,
                     StrokeId = raceDto.StrokeId,
-                    Venue = raceDto.Venue,
-                    RaceDate = raceDto.RaceDate,
+                    Gender = raceDto.Gender,
+                    Age = raceDto.Age,
+                    Distance = raceDto.Distance,
                     CreatedUserId = userId,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
                 };
 
                 unitOfWork.Races.Insert(race);
@@ -69,7 +70,6 @@ namespace SCMM_Application.DataAccess.Repository
             {
                 throw ex.InnerException;
             }
-
         }
 
         public void UpdateRace(int userId, RaceDto raceDto)
@@ -84,8 +84,9 @@ namespace SCMM_Application.DataAccess.Repository
                 }
                 result.RaceId = raceDto.RaceId;
                 result.StrokeId = raceDto.StrokeId;
-                result.Venue = raceDto.Venue;
-                result.RaceDate = raceDto.RaceDate;
+                result.Gender = raceDto.Gender;
+                result.Age = raceDto.Age;
+                result.Distance = raceDto.Distance;
                 result.ModifiedUserId = userId;
                 result.ModifiedDate = DateTime.Now;
 

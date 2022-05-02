@@ -7,22 +7,30 @@ using System.Threading.Tasks;
 
 namespace SCMM_Application.DataAccess.Models
 {
-    public class RaceType
+    public class ClubMeet
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int RaceTypeId { get; set; }
+        public int ClubMeetId { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(250)")]
         [Required(ErrorMessage = "Field can not be blank")]
-        public string Gender { get; set; }
+        public string Name { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(250)")]
         [Required(ErrorMessage = "Field can not be blank")]
-        public string Age { get; set; }
+        public string Venue { get; set; }
 
         [Required(ErrorMessage = "Field can not be blank")]
-        public int Distance { get; set; }
+        public DateTime MeetDate { get; set; }
+
+        public int? CreatedUserId { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
+
+        public int? ModifiedUserId { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
 
     }
 }
