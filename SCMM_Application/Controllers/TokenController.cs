@@ -13,23 +13,23 @@ namespace SCMM_Application.Controllers
     [Route("[controller]")]
     public class TokenController : Controller
     {
-        private IConfiguration _config;
-
+        private IConfiguration config;
         internal IUserManager userManager;
 
         public TokenController(IConfiguration config, IUserManager userManager)
         {
-            _config = config;
+            this.config = config;
             this.userManager = userManager;
         }
 
         [HttpGet]
+        [Route("GetToken")]
         public IActionResult GetToken(string username, string password)
         {
             var result = userManager.GetByCredentials(username, password);
             if (result == null)
                 return Unauthorized();
-            var jwt = new JwtService(_config);
+            var jwt = new JwtService(config);
             var token = jwt.GenerateSecurityToken(result);
             return Ok(token);
         }

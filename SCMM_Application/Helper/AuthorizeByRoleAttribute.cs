@@ -12,7 +12,6 @@ namespace SCMM_Application.Helper
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class AuthorizeByRoleAttribute : Attribute, IAuthorizationFilter
     {
-
         readonly string role;
         public AuthorizeByRoleAttribute(string role)
         {
@@ -20,7 +19,6 @@ namespace SCMM_Application.Helper
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-
             if (context.HttpContext.User.FindFirst(ClaimTypes.Role) == null)
             {
                 context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };

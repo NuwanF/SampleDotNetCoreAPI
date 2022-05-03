@@ -19,7 +19,7 @@ namespace SCMM_Application.DataAccess.Models
         [Required(ErrorMessage = "Field can not be blank")]
         public int StrokeId { get; set; }
 
-        [Column(TypeName = "nvarchar(50)")]
+        [Column(TypeName = "nvarchar(10)")]
         [Required(ErrorMessage = "Field can not be blank")]
         public string Gender { get; set; }
 

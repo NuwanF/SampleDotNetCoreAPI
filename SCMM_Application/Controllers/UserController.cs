@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SCMM_Application.BusinessLogic.Interfaces;
 using SCMM_Application.DataAccess.DomainModels;
@@ -16,13 +17,13 @@ namespace SCMM_Application.Controllers
     [Authorize]
     public class UserController : ControllerBase
     {
-
+        private IConfiguration config;
         private readonly ILogger<UserController> logger;
-
         internal IUserManager userManager;
 
-        public UserController(ILogger<UserController> logger, IUserManager userManager)
+        public UserController(IConfiguration config, ILogger<UserController> logger, IUserManager userManager)
         {
+            this.config = config;
             this.logger = logger;
             this.userManager = userManager;
         }
@@ -70,10 +71,16 @@ namespace SCMM_Application.Controllers
 
         [HttpPost]
         [Route("PostUser")]
+        [AllowAnonymous]
         public IActionResult PostUser([FromBody] UserDto userDto)
         {
             userManager.AddUser(userDto);
-            return Ok();
+            var result = userManager.GetByCredentials(userDto.Username, userDto.Password);
+            if (result == null)
+                return Unauthorized();
+            var jwt = new JwtService(config);
+            var token = jwt.GenerateSecurityToken(result);
+            return Ok(token);
         }
 
         [HttpPut]

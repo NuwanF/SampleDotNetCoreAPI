@@ -82,7 +82,7 @@ namespace SCMM_Application
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors("MyPolicy");
+            app.UseCors(options => options.WithOrigins("http://localhost:3000").AllowAnyMethod());
 
             app.UseHttpsRedirection();
 
