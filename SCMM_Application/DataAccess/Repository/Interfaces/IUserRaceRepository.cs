@@ -15,6 +15,6 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
 
         public void UpdateUserRace(int userId, UserRaceDto userRaceDto);
 
-        public void DeleteUserRace(int userRaceId);
+        public void DeleteUserRace(int userId, int raceId);
     }
 }

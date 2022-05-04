@@ -33,9 +33,9 @@ namespace SCMM_Application.BusinessLogic
             userRaceRepository.UpdateUserRace(userId, userRaceDto);
         }
 
-        public void DeleteUserRace(int userRaceId)
+        public void DeleteUserRace(int userId, int raceId)
         {
-            userRaceRepository.DeleteUserRace(userRaceId);
+            userRaceRepository.DeleteUserRace(userId, raceId);
         }
 
     }

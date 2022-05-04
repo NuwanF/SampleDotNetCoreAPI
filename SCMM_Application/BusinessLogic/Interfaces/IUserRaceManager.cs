@@ -15,7 +15,7 @@ namespace SCMM_Application.BusinessLogic.Interfaces
 
         public void UpdateUserRace(int userId, UserRaceDto userRaceDto);
 
-        public void DeleteUserRace(int userRaceId);
+        public void DeleteUserRace(int userId, int raceId);
 
     }
 }

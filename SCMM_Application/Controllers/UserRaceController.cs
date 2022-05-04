@@ -55,9 +55,9 @@ namespace SCMM_Application.Controllers
         [HttpDelete]
         [Route("DeleteUserRace")]
         [AuthorizeByRole("Admin")]
-        public IActionResult DeleteUserRace(int userRaceId)
+        public IActionResult DeleteUserRace(int userId, int raceId)
         {
-            userRaceManager.DeleteUserRace(userRaceId);
+            userRaceManager.DeleteUserRace(userId, raceId);
             return Ok();
         }
     }

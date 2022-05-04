@@ -108,11 +108,11 @@ namespace SCMM_Application.DataAccess.Repository
             }
         }
 
-        public void DeleteUserRace(int userRaceId)
+        public void DeleteUserRace(int userId, int raceId)
         {
             try
             {
-                var result = unitOfWork.UserRaces.GetFirstOrDefault(userRaceId);
+                var result = context.UserRaces.FirstOrDefault(x => x.UserId == userId && x.RaceId == raceId);
 
                 if (result == null)
                 {
