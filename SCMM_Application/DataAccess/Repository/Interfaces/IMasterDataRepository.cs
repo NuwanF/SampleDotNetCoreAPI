@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace SCMM_Application.DataAccess.Repository.Interfaces
 {
-    public interface IUserRoleRepository
+    public interface IMasterDataRepository
     {
-        public List<UserRoleDto> GetAll();
+        public List<UserRoleDto> GetAllUserRoles();
+
+        public List<StrokeDto> GetAllStrokes();
     }
 }

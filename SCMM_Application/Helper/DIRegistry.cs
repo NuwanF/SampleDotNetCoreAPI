@@ -17,7 +17,8 @@ namespace SCMM_Application.Helper
             services
                 .AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>))
                 .AddTransient<IUnitOfWork, UnitOfWork>()
-                .AddTransient<IUserRoleRepository, UserRoleRepository>()
+                .AddTransient<IMasterDataRepository, MasterDataRepository>()
+                .AddTransient<IMasterDataManager, MasterDataManager>()
                 .AddTransient<IUserRepository, UserRepository>()
                 .AddTransient<IUserManager, UserManager>()
                 .AddTransient<ISquadRepository, SquadRepository>()

@@ -29,14 +29,6 @@ namespace SCMM_Application.Controllers
         }
 
         [HttpGet]
-        [Route("GetUserRole")]
-        public IActionResult GetUserRoles()
-        {
-            var result = userManager.GetAllUserRoles();
-            return Ok(result);
-        }
-
-        [HttpGet]
         [Route("GetAllUsers")]
         [AuthorizeByRole("Admin")]
         public IActionResult GetAll()

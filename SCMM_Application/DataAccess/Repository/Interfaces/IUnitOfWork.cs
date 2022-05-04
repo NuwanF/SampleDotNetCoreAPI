@@ -21,6 +21,8 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
 
         IBaseRepository<ClubMeet> ClubMeets { get; }
 
+        IBaseRepository<Stroke> Strokes { get; }
+
         public void Commit();
 
         public void CommitAsync();
