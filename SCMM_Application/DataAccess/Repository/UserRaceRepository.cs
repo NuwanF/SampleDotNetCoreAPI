@@ -39,6 +39,7 @@ namespace SCMM_Application.DataAccess.Repository
                     UserId = userRace.UserId,
                     UserName = userRace.User.Name,
                     RaceId = userRace.RaceId,
+                    RaceName = userRace.Race.Name,
                     Timing = userRace.Timing,
                     Place = userRace.Place,
                     ClubMeetId = userRace.Race.ClubMeetId,

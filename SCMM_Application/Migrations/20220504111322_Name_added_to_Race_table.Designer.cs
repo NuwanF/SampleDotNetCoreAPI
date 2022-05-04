@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCMM_Application.DataAccess;
 
 namespace SCMM_Application.Migrations
 {
     [DbContext(typeof(SwimClubDBContext))]
-    partial class SwimClubDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220504111322_Name_added_to_Race_table")]
+    partial class Name_added_to_Race_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

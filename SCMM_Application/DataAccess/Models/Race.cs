@@ -13,6 +13,10 @@ namespace SCMM_Application.DataAccess.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int RaceId { get; set; }
 
+        [Column(TypeName = "nvarchar(20)")]
+        [Required(ErrorMessage = "Field can not be blank")]
+        public string Name { get; set; }
+
         [Required(ErrorMessage = "Field can not be blank")]
         public int ClubMeetId { get; set; }
 

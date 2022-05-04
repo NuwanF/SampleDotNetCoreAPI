@@ -34,6 +34,7 @@ namespace SCMM_Application.DataAccess.Repository
                 RaceDto raceDto = new RaceDto()
                 {
                     RaceId = race.RaceId,
+                    Name = race.Name,
                     ClubMeetId = race.ClubMeetId,
                     Gender = race.Gender,
                     Age = race.Age,
@@ -54,6 +55,7 @@ namespace SCMM_Application.DataAccess.Repository
             {
                 Race race = new Race()
                 {
+                    Name = raceDto.Name,
                     ClubMeetId = raceDto.ClubMeetId,
                     StrokeId = raceDto.StrokeId,
                     Gender = raceDto.Gender,
@@ -83,6 +85,7 @@ namespace SCMM_Application.DataAccess.Repository
                     return;
                 }
                 result.RaceId = raceDto.RaceId;
+                result.Name = raceDto.Name;
                 result.StrokeId = raceDto.StrokeId;
                 result.Gender = raceDto.Gender;
                 result.Age = raceDto.Age;

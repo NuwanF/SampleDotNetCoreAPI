@@ -9,6 +9,8 @@ namespace SCMM_Application.DataAccess.DomainModels
     {
         public int RaceId { get; set; }
 
+        public string Name { get; set; }
+
         public int ClubMeetId { get; set; }
 
         public string Gender { get; set; }

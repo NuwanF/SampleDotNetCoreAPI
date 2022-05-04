@@ -13,6 +13,8 @@ namespace SCMM_Application.DataAccess.DomainModels
 
         public int RaceId { get; set; }
 
+        public string RaceName { get; set; }
+
         public decimal Timing { get; set; }
 
         public int Place { get; set; }
