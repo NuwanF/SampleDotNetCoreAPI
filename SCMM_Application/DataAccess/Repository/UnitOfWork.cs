@@ -20,6 +20,7 @@ namespace SCMM_Application.DataAccess.Repository
         private BaseRepository<Race> race;
         private BaseRepository<ClubMeet> clubMeet;
         private BaseRepository<Stroke> stroke;
+        private BaseRepository<Stage> stage;
         public UnitOfWork(SwimClubDBContext context)
         {
             this.context = context;
@@ -94,6 +95,15 @@ namespace SCMM_Application.DataAccess.Repository
             {
                 return stroke ??
                     (stroke = new BaseRepository<Stroke>(context));
+            }
+        }
+
+        public IBaseRepository<Stage> Stages
+        {
+            get
+            {
+                return stage ??
+                    (stage = new BaseRepository<Stage>(context));
             }
         }
 

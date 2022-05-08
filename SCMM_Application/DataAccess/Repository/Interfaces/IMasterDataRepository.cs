@@ -12,5 +12,7 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
         public List<UserRoleDto> GetAllUserRoles();
 
         public List<StrokeDto> GetAllStrokes();
+
+        public List<StageDto> GetAllStages();
     }
 }

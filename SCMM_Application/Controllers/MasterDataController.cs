@@ -44,6 +44,13 @@ namespace SCMM_Application.Controllers
             return Ok(result);
         }
 
-
+        [HttpGet]
+        [Route("GetAllStages")]
+        [AllowAnonymous]
+        public IActionResult GetAllStages()
+        {
+            var result = masterDadtaManager.GetAllStages();
+            return Ok(result);
+        }
     }
 }

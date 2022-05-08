@@ -25,5 +25,10 @@ namespace SCMM_Application.BusinessLogic
         {
             return masterDataRepository.GetAllStrokes();
         }
+
+        public List<StageDto> GetAllStages()
+        {
+            return masterDataRepository.GetAllStages();
+        }
     }
 }

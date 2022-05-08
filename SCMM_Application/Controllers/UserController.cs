@@ -61,6 +61,18 @@ namespace SCMM_Application.Controllers
             return Ok(result.Where(x => x.UserRoleName == "Default"));
         }
 
+        [HttpGet]
+        [Route("GetParents")]
+        [AllowAnonymous]
+        public IActionResult GetParents()
+        {
+            var result = userManager.GetAll();
+            if (result == null)
+                return null;
+
+            return Ok(result.Where(x => x.UserRoleName == "Parent"));
+        }
+
         [HttpPost]
         [Route("PostUser")]
         [AllowAnonymous]
@@ -77,6 +89,7 @@ namespace SCMM_Application.Controllers
 
         [HttpPut]
         [Route("PutUser")]
+        [Authorize]
         public IActionResult PutUser([FromBody] UserDto userDto)
         {
             userManager.UpdateUser(userDto);
@@ -85,6 +98,7 @@ namespace SCMM_Application.Controllers
 
         [HttpDelete]
         [Route("DeleteUser")]
+        [Authorize]
         public IActionResult DeleteUser(int userId)
         {
             userManager.DeleteUser(userId);

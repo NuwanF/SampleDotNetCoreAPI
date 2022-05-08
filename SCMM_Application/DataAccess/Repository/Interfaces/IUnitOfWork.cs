@@ -23,6 +23,8 @@ namespace SCMM_Application.DataAccess.Repository.Interfaces
 
         IBaseRepository<Stroke> Strokes { get; }
 
+        IBaseRepository<Stage> Stages { get; }
+
         public void Commit();
 
         public void CommitAsync();

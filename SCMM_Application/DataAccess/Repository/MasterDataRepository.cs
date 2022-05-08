@@ -77,5 +77,33 @@ namespace SCMM_Application.DataAccess.Repository
                 throw ex.InnerException;
             }
         }
+
+        public List<StageDto> GetAllStages()
+        {
+            try
+            {
+                var result = unitOfWork.Stages.GetAll();
+
+                if (result == null)
+                    return null;
+
+                List<StageDto> stageDtoList = new List<StageDto>();
+                foreach (var stage in result)
+                {
+                    StageDto stageDto = new StageDto()
+                    {
+                        StageId = stage.StageId,
+                        Name = stage.Name
+                    };
+                    stageDtoList.Add(stageDto);
+                }
+                return stageDtoList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex.InnerException;
+            }
+        }
     }
 }
