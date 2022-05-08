@@ -30,7 +30,7 @@ namespace SCMM_Application.Controllers
 
         [HttpGet]
         [Route("GetAllUsers")]
-        [AuthorizeByRole("Admin")]
+        [AllowAnonymous]
         public IActionResult GetAll()
         {
             var result = userManager.GetAll();
@@ -89,11 +89,16 @@ namespace SCMM_Application.Controllers
 
         [HttpPut]
         [Route("PutUser")]
-        [Authorize]
+        [AllowAnonymous]
         public IActionResult PutUser([FromBody] UserDto userDto)
         {
             userManager.UpdateUser(userDto);
-            return Ok();
+            var result = userManager.GetById(userDto.UserId);
+            if (result == null)
+                return Unauthorized();
+            var jwt = new JwtService(config);
+            var token = jwt.GenerateSecurityToken(result);
+            return Ok(token);
         }
 
         [HttpDelete]

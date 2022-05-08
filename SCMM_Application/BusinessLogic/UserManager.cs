@@ -22,6 +22,11 @@ namespace SCMM_Application.BusinessLogic
             return userRepository.GetAll();
         }
 
+        public UserDto GetById(int userId)
+        {
+            return userRepository.GetById(userId);
+        }
+
         public UserDto GetByCredentials(string username, string password)
         {
             return userRepository.GetByCredentials(username, password);

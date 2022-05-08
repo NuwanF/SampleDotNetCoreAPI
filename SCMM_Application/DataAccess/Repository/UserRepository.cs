@@ -60,27 +60,68 @@ namespace SCMM_Application.DataAccess.Repository
             
         }
 
+        public UserDto GetById(int userId)
+        {
+            try
+            {
+                var result = context.Users.Include(r => r.UserRole).FirstOrDefault(x => x.UserId == userId);
+
+                if (result == null)
+                    return null;
+
+                UserDto userDto = new UserDto()
+                {
+                    UserId = result.UserId,
+                    Name = result.Name,
+                    DOB = result.DOB,
+                    Email = result.Email,
+                    Mobile = result.Mobile,
+                    Username = result.Username,
+                    Password = result.Password,
+                    UserRoleId = result.UserRoleId,
+                    UserRoleName = result.UserRole.Name
+                };
+
+                return userDto;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex.InnerException;
+            }
+
+        }
+
         public UserDto GetByCredentials(string username, string password)
         {
-            var result = context.Users.Include(r => r.UserRole).FirstOrDefault(x => x.Username == username && x.Password == password);
-
-            if (result == null)
-                return null;
-
-            UserDto userDto = new UserDto()
+            try
             {
-                UserId = result.UserId,
-                Name = result.Name,
-                DOB = result.DOB,
-                Email = result.Email,
-                Mobile = result.Mobile,
-                Username = result.Username,
-                Password = result.Password,
-                UserRoleId = result.UserRoleId,
-                UserRoleName = result.UserRole.Name
-            };
+                var result = context.Users.Include(r => r.UserRole).FirstOrDefault(x => x.Username == username && x.Password == password);
 
-            return userDto;
+                if (result == null)
+                    return null;
+
+                UserDto userDto = new UserDto()
+                {
+                    UserId = result.UserId,
+                    Name = result.Name,
+                    DOB = result.DOB,
+                    Email = result.Email,
+                    Mobile = result.Mobile,
+                    Username = result.Username,
+                    Password = result.Password,
+                    UserRoleId = result.UserRoleId,
+                    UserRoleName = result.UserRole.Name
+                };
+
+                return userDto;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex.InnerException;
+            }
+
         }
 
         public void AddUser(UserDto userDto)

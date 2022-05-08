@@ -10,6 +10,8 @@ namespace SCMM_Application.BusinessLogic.Interfaces
     {
         public List<UserDto> GetAll();
 
+        public UserDto GetById(int userId);
+
         public UserDto GetByCredentials(string username, string password);
 
         public void AddUser(UserDto userDto);
