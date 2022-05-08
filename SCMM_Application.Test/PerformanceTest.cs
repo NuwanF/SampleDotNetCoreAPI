@@ -7,14 +7,14 @@ using Xunit;
 
 namespace SCMM_Application.Test
 {
-    public class UserTest
+    public class PerformanceTest
     {
         [Fact]
-        public async Task GetDeveloperByTechnology()
+        public async Task GetPerformance()
         {
             using (var client = new TestClientProvider().Client)
             {
-                var response = await client.GetAsync("user/GetUserType");
+                var response = await client.GetAsync("performance/GetAllPerformance");
                 response.EnsureSuccessStatusCode();
                 Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             }

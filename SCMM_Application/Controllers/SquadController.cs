@@ -26,7 +26,7 @@ namespace SCMM_Application.Controllers
 
         [HttpGet]
         [Route("GetAllSquad")]
-        [AuthorizeByRole("Admin")]
+        [AuthorizeByRole("Coach")]
         public IActionResult GetAll()
         {
             var result = squadManager.GetAll();
@@ -35,7 +35,7 @@ namespace SCMM_Application.Controllers
 
         [HttpGet]
         [Route("GetByCoach")]
-        [AuthorizeByRole("Admin")]
+        [AuthorizeByRole("Coach")]
         public IActionResult GetByCoach(int coachId)
         {
             var result = squadManager.GetAll();
