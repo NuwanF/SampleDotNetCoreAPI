@@ -21,6 +21,8 @@ namespace SCMM_Application.DataAccess.DomainModels
 
         public int ClubMeetId { get; set; }
 
+        public string ClubMeetName { get; set; }
+
         public string Gender { get; set; }
 
         public string Age { get; set; }

@@ -28,14 +28,15 @@ namespace SCMM_Application
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            services.AddCors(o => o.AddPolicy("SCMMPolicy", builder =>
             {
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
+                builder
+                .WithOrigins("http://localhost:3000")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
             }));
 
             services.AddDbContext<SwimClubDBContext>(options =>
@@ -44,27 +45,27 @@ namespace SCMM_Application
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(options =>
             {
-                options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
+                options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",
-                    Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+                    Type = SecuritySchemeType.Http,
                     Scheme = "Bearer",
                     BearerFormat = "JWT",
-                    In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+                    In = ParameterLocation.Header,
                     Description = "JWT Authorization header using the Bearer scheme."
                 });
-                options.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement {
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement {
                     {
-                        new Microsoft.OpenApi.Models.OpenApiSecurityScheme {
-                                Reference = new Microsoft.OpenApi.Models.OpenApiReference {
-                                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
+                        new OpenApiSecurityScheme {
+                                Reference = new OpenApiReference {
+                                    Type = ReferenceType.SecurityScheme,
                                         Id = "Bearer"
                                 }
                             },
                             new string[] {}
                     }
                 });
-                //options.SwaggerDoc("V1", new OpenApiInfo { Title = "SCMM API", Version = "V1" });
+
             });
 
             services.AddControllers();
@@ -74,7 +75,6 @@ namespace SCMM_Application
             services.AddTokenAuthentication(Configuration);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -82,7 +82,7 @@ namespace SCMM_Application
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options => options.WithOrigins("http://localhost:3000").AllowAnyMethod());
+            app.UseCors("SCMMPolicy");
 
             app.UseHttpsRedirection();
 
