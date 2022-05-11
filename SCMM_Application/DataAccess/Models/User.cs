@@ -16,9 +16,13 @@ namespace SCMM_Application.DataAccess.Models
         [Required(ErrorMessage = "Field can not be blank")]
         public int UserRoleId { get; set; }
 
-        [Column(TypeName = "nvarchar(250)")]
+        [Column(TypeName = "nvarchar(50)")]
         [Required(ErrorMessage = "Field can not be blank")]
         public string Name { get; set; }
+
+        [Column(TypeName = "nvarchar(50)")]
+        [Required(ErrorMessage = "Field can not be blank")]
+        public string Surname { get; set; }
 
         [Required(ErrorMessage = "Field can not be blank")]
         public DateTime DOB { get; set; }
@@ -30,6 +34,14 @@ namespace SCMM_Application.DataAccess.Models
         [Required(ErrorMessage = "Field can not be blank")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Column(TypeName = "nvarchar(250)")]
+        [Required(ErrorMessage = "Field can not be blank")]
+        public string Address { get; set; }
+
+        [Column(TypeName = "nvarchar(10)")]
+        [Required(ErrorMessage = "Field can not be blank")]
+        public string Postcode { get; set; }
 
         [Column(TypeName = "nvarchar(20)")]
         [Required(ErrorMessage = "Field can not be blank")]

@@ -41,7 +41,7 @@ namespace SCMM_Application.DataAccess.Repository
                     StageId = performance.StageId,
                     StageName = performance.Stage.Name,
                     UserId = performance.UserId,
-                    UserName = performance.User.Name,
+                    UserName = performance.User.Name + " " + performance.User.Surname,
                     PersonalBestTime = performance.PersonalBestTime
                 };
                 performanceDtoList.Add(performanceDto);
@@ -68,7 +68,7 @@ namespace SCMM_Application.DataAccess.Repository
                 StageId = result.StageId,
                 StageName = result.Stage.Name,
                 UserId = result.UserId,
-                UserName = result.User.Name,
+                UserName = result.User.Name + " " + result.User.Surname,
                 PersonalBestTime = result.PersonalBestTime
             };
             return performanceDto;

@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using SCMM_Application.DataAccess;
 using SCMM_Application.DataAccess.DomainModels;
 using SCMM_Application.DataAccess.Models;
 using SCMM_Application.DataAccess.Repository.Interfaces;
+using SCMM_Application.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +40,12 @@ namespace SCMM_Application.DataAccess.Repository
                     {
                         UserId = user.UserId,
                         Name = user.Name,
+                        Surname = user.Surname,
                         DOB = user.DOB,
                         Gender = user.Gender,
                         Email = user.Email,
+                        Address = user.Address,
+                        Postcode = user.Postcode,
                         Mobile = user.Mobile,
                         Username = user.Username,
                         Password = user.Password,
@@ -126,15 +131,24 @@ namespace SCMM_Application.DataAccess.Repository
 
         public void AddUser(UserDto userDto)
         {
+            var result = context.Users.FirstOrDefault(x => x.Username.ToLower() == userDto.Username.ToLower());
+
+            if (result != null)
+                throw new Exception("User already exist");
+
             try
             {
+
                 User user = new User()
                 {
                     UserRoleId = 5,
                     Name = userDto.Name,
+                    Surname = userDto.Surname,
                     DOB = userDto.DOB,
                     Gender = userDto.Gender,
                     Email = userDto.Email,
+                    Address = userDto.Address,
+                    Postcode = userDto.Postcode,
                     Mobile = userDto.Mobile,
                     Username = userDto.Username,
                     Password = userDto.Password,
@@ -164,9 +178,12 @@ namespace SCMM_Application.DataAccess.Repository
 
                 result.UserRoleId = userDto.UserRoleId;
                 result.Name = userDto.Name;
+                result.Surname = userDto.Surname;
                 result.DOB = userDto.DOB;
                 result.Gender = userDto.Gender;
                 result.Email = userDto.Email;
+                result.Address = userDto.Address;
+                result.Postcode = userDto.Postcode;
                 result.Mobile = userDto.Mobile;
                 result.Username = userDto.Username;
                 result.Password = userDto.Password;

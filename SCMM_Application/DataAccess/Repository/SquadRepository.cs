@@ -38,9 +38,9 @@ namespace SCMM_Application.DataAccess.Repository
                    SquadId = squad.SquadId,
                    Name = squad.Name,
                    StudentId = squad.StudentId,
-                   StudentName = squad.Student.Name,
+                   StudentName = squad.Student.Name + " " + squad.Student.Surname,
                    CoachId = squad.CoachId,
-                   CoachName = squad.Coach.Name
+                   CoachName = squad.Coach.Name + " " + squad.Coach.Surname
                 };
                 squadDtoList.Add(squadDto);
             }

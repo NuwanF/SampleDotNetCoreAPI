@@ -37,7 +37,7 @@ namespace SCMM_Application.DataAccess.Repository
                 UserRaceDto userRaceDto = new UserRaceDto()
                 {
                     UserId = userRace.UserId,
-                    UserName = userRace.User.Name,
+                    UserName = userRace.User.Name + " " + userRace.User.Surname,
                     RaceId = userRace.RaceId,
                     RaceName = userRace.Race.Name,
                     Timing = userRace.Timing,

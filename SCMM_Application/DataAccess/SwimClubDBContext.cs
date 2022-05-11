@@ -19,6 +19,10 @@ namespace SCMM_Application.DataAccess
         {
             base.OnModelCreating(builder);
 
+            builder.Entity<User>()
+                .HasIndex(u => u.Username)
+                .IsUnique();
+
             builder.Entity<UserRace>().HasKey(q => new
             {
                 q.UserId,
