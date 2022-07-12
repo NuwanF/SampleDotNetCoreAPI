@@ -2,13 +2,13 @@
 A Swimming Club Management System using Dot Net Core API
 
 ## Setup
-* Download the SampleDotNetCoreAPI sollution which contains two projects
-* Change database connection strings in SampleDotNetCoreAPI -> appsettings.json file and SampleDotNetCoreAPI_Test -> appsettings.test.json file
+* Download the SCMM_Application sollution which contains two projects
+* Change database connection strings in SampleDotNetCoreAPI -> appsettings.json file and SCMM_Application.Test -> appsettings.test.json file
 * Run below script in Package Manager Console to generate database with data
 ```bash
 "update-database"
 ```
-* Run ParkwaylabsExercise2 project and you will find a Swagger UI, where you will find the required endpoints
+* Run SCMM_Application project and you will find a Swagger UI, where you will find the required endpoints
 * Run test in Test Explorer and you will find the result of the test cases
 
 In Test Explorer, some sample test cases are added against all three endpoints
