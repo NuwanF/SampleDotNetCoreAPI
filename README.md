@@ -1,5 +1,5 @@
 # SampleDotNetCoreAPI
-A Swimming Club Management System using Dot Net Core API
+A Swimming Club Management System backend using Dot Net Core API
 
 ## Setup
 * Download the SCMM_Application sollution which contains two projects
